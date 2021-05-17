@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SoldierShootScene2.unity
     guid: e536282147522d04b8b3005498788484
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Authentication.unity
     guid: 1c2cd18705c2b284bae37a33b039c1ec
   m_configObjects: {}

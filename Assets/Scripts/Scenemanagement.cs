@@ -93,7 +93,7 @@ public class Scenemanagement : MonoBehaviour
             // If level 0 is the only possibility, don't bother to show the
             // level selection screen, just go straight into the level.
             //GameManager.Instance.GoToLevel(0);
-            SceneManager.LoadScene("SoldierShootScene1");
+            SceneManager.LoadScene("SoldierShootScene2");
         }
         else
         {
@@ -170,7 +170,7 @@ public class Scenemanagement : MonoBehaviour
     #region BasicButtons
     public void StartGame()
     {
-        SceneManager.LoadScene("SoldierShootScene1");
+        SceneManager.LoadScene("SoldierShootScene2");
     }
 
     public void MenuScene()
