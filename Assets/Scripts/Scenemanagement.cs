@@ -5,7 +5,7 @@ using GameLogic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Scenemanagement : MonoBehaviour
+public class SceneManagement : MonoBehaviour
 {
     public AudioClip UiBeepFx;
     public GameObject playButton;
@@ -58,8 +58,8 @@ public class Scenemanagement : MonoBehaviour
             signinButton.GetComponentInChildren<Text>().text = Strings.SignIn;
         }
 
-        //achievementButton.SetActive(authenticated);
-        //highScoreButton.SetActive(authenticated);
+        achievementButton.SetActive(authenticated);
+        highScoreButton.SetActive(authenticated);
         //loadButton.SetActive(authenticated);
         //saveButton.SetActive(authenticated);
     }
@@ -146,19 +146,19 @@ public class Scenemanagement : MonoBehaviour
             });
         }
     }
-
+      */
     public void OnAchievements()
     {
         Beep();
-        //GoogleServicesManager.Instance.ShowAchievementsUI();
+        GoogleServicesManager.Instance.ShowAchievementsUI();
     }
 
     public void OnHighScores()
     {
         Beep();
-        //GoogleServicesManager.Instance.ShowLeaderboardUI();
+        GoogleServicesManager.Instance.ShowLeaderboardUI();
     }
-    */
+  
 
     void Beep()
     {
