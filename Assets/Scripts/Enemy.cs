@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameLogic;
 
 public class Enemy : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class Enemy : MonoBehaviour {
 	public static float health = 4f;
 
 	public static int EnemiesAlive = 0;
+
+	bool firstSpark = false;
 
 	void Start ()
 	{
@@ -30,6 +33,11 @@ public class Enemy : MonoBehaviour {
 	{
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
 
+		if (!firstSpark)
+		{
+			GooglePlayGamesServices.UnlockAchievement(SlingshotSoldier.GPGSIds.achievement_first_spark);
+			firstSpark = true;
+		}
 		EnemiesAlive--;
 		if (EnemiesAlive <= 0)
 			Debug.Log("LEVEL WON!");

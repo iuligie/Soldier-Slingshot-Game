@@ -1554,6 +1554,7 @@ GameObject:
   - component: {fileID: 1147049391}
   - component: {fileID: 1147049390}
   - component: {fileID: 1147049393}
+  - component: {fileID: 1147049394}
   - component: {fileID: 1147049389}
   m_Layer: 5
   m_Name: Canvas
@@ -1650,7 +1651,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147049388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 539772030d86f60449adeb928de89930, type: 3}
   m_Name: 
@@ -1664,6 +1665,18 @@ MonoBehaviour:
   loadButton: {fileID: 0}
   saveButton: {fileID: 0}
   levelSelectionPanel: {fileID: 758180511}
+--- !u!114 &1147049394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147049388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e0e46034eda254fb0bc35a122b81d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1183721565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,9 +1904,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1147049393}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: OnHighScores
+      - m_Target: {fileID: 1147049394}
+        m_TargetAssemblyTypeName: GooglePlayGamesServices, Assembly-CSharp
+        m_MethodName: ShowLeaderboardsUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2431,9 +2444,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1147049393}
-        m_TargetAssemblyTypeName: Scenemanagement, Assembly-CSharp
-        m_MethodName: OnAchievements
+      - m_Target: {fileID: 1147049394}
+        m_TargetAssemblyTypeName: GooglePlayGamesServices, Assembly-CSharp
+        m_MethodName: ShowAchievementsUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

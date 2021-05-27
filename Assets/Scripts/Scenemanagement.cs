@@ -12,9 +12,7 @@ public class SceneManagement : MonoBehaviour
     public GameObject signinButton;
     public GameObject signinMessage;
     public GameObject achievementButton;
-    public GameObject highScoreButton;
-    public GameObject loadButton;
-    public GameObject saveButton;
+    public GameObject leaderboardButton;
     public GameObject levelSelectionPanel;
 
 
@@ -59,9 +57,7 @@ public class SceneManagement : MonoBehaviour
         }
 
         achievementButton.SetActive(authenticated);
-        highScoreButton.SetActive(authenticated);
-        //loadButton.SetActive(authenticated);
-        //saveButton.SetActive(authenticated);
+        leaderboardButton.SetActive(authenticated);
     }
 
     public void OnSignIn()
@@ -84,39 +80,9 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    public void OnPlay()
-    {
-        Beep();
-
-        if (GoogleServicesManager.Instance.Authenticated)
-        {
-            // If level 0 is the only possibility, don't bother to show the
-            // level selection screen, just go straight into the level.
-            //GameManager.Instance.GoToLevel(0);
-            SceneManager.LoadScene("SoldierShootScene2");
-        }
-        else
-        {
-            // Show the level selection screen
-            // gameObject.
-            // this.enabled = false;
-            //ShowLevelSelection();
-        }
-    }
     #endregion
 
     /*
-    public void OnLoadProgress()
-    {
-        Beep();
-        //GoogleServicesManager.Instance.LoadFromCloud();
-    }
-
-    public void OnSaveProgress()
-    {
-        Beep();
-        //GoogleServicesManager.Instance.SaveProgress();
-    }
 
     void ShowLevelSelection()
     {
@@ -124,7 +90,7 @@ public class SceneManagement : MonoBehaviour
 
         playButton.GetComponent<Button>().interactable = false;
         achievementButton.GetComponent<Button>().interactable = false;
-        highScoreButton.GetComponent<Button>().interactable = false;
+        leaderboardButton.GetComponent<Button>().interactable = false;
         signinButton.GetComponent<Button>().interactable = false;
         loadButton.GetComponent<Button>().interactable = false;
 
@@ -147,18 +113,18 @@ public class SceneManagement : MonoBehaviour
         }
     }
       */
-    public void OnAchievements()
+
+    public void ShowAchievements()
     {
         Beep();
-        GoogleServicesManager.Instance.ShowAchievementsUI();
+        GooglePlayGamesServices.ShowAchievementsUI();
     }
 
-    public void OnHighScores()
+    public void ShowLeaderboards()
     {
         Beep();
-        GoogleServicesManager.Instance.ShowLeaderboardUI();
+        GooglePlayGamesServices.ShowLeaderboardsUI();
     }
-  
 
     void Beep()
     {
@@ -170,16 +136,19 @@ public class SceneManagement : MonoBehaviour
     #region BasicButtons
     public void StartGame()
     {
+        Beep();
         SceneManager.LoadScene("SoldierShootScene2");
     }
 
     public void MenuScene()
     {
+        Beep();
         SceneManager.LoadScene("MenuScene 1");
     }
 
     public void ExitGame()
     {
+        Beep();
         Application.Quit();
     }
     #endregion
