@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameLogic;
 
 public class Ball : MonoBehaviour {
 
@@ -14,6 +15,15 @@ public class Ball : MonoBehaviour {
 	public GameObject nextBall;
 
 	private bool isPressed = false;
+
+	public GameObject enemyGO;
+
+	private EnemyManager enemy;
+
+	void Start()
+	{
+		enemy = enemyGO.GetComponent<EnemyManager>();
+	}
 
 	void Update ()
 	{
@@ -56,12 +66,15 @@ public class Ball : MonoBehaviour {
 			nextBall.SetActive(true);
 		} else
 		{
-			Enemy.EnemiesAlive = 0;
+			//Enemy.EnemiesAlive = 0;
             //if (GetComponent<Rigidbody2D>().velocity == new Vector2(2,2))
             //{
+			if(enemy.countDeadEnemies != enemy.countBodyParts)
               Debug.Log("Enter last if before reset " + GetComponent<Rigidbody2D>().velocity);
-                yield return new WaitForSeconds(5f);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                yield return new WaitForSeconds(3f);
+			GoogleServicesManager.Instance.score = enemy.countDeadEnemies;
+			GoogleServicesManager.Instance.RestartLevel();
+			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             //}
         }
 	

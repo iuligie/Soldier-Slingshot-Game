@@ -6,6 +6,7 @@
     using GooglePlayGames.BasicApi.SavedGame;
     using System;
     using GooglePlayGames.BasicApi;
+    using UnityEngine.SceneManagement;
 
     public class GoogleServicesManager
     {
@@ -23,6 +24,8 @@
         // what is the highest score we have posted to the leaderboard?
         private int mHighestPostedScore = 0;
 
+        public int score = 0;
+
         public static GoogleServicesManager Instance
         {
             get { return sInstance; }
@@ -31,9 +34,7 @@
         void ReportAllProgress()
         {
             FlushAchievements();
-            //UnlockProgressBasedAchievements();
             PostToLeaderboard();
-            //AutoSave();
         }
 
         public void FlushAchievements()
@@ -61,9 +62,9 @@
 
         public void RestartLevel()
         {
-            //AutoSave();
+            
             ReportAllProgress();
-            GoToScene("2_GameplayScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         public void FinishLevelAndGoToNext(int score, int stars)
@@ -78,7 +79,7 @@
         {
             //AutoSave();
             ReportAllProgress();
-            GoToScene("1_MenuScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
         public void UnlockAchievement(string achId)
@@ -171,7 +172,7 @@
 
         public void PostToLeaderboard()
         {
-            int score = 10;// mProgress.TotalScore;
+            
             if (Authenticated && score > mHighestPostedScore)
             {
                 // post score to the leaderboard

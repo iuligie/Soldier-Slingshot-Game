@@ -48,6 +48,9 @@ public class SceneManagement : MonoBehaviour
             msg.text = Strings.SignedInBlurb;
             signin.interactable = !levelSelectionPanel.activeSelf;
             signinButton.GetComponentInChildren<Text>().text = Strings.SignOut;
+
+            achievementButton.GetComponent<Button>().interactable = authenticated;
+            leaderboardButton.GetComponent<Button>().interactable = authenticated;
         }
         else
         {
@@ -56,8 +59,7 @@ public class SceneManagement : MonoBehaviour
             signinButton.GetComponentInChildren<Text>().text = Strings.SignIn;
         }
 
-        achievementButton.SetActive(authenticated);
-        leaderboardButton.SetActive(authenticated);
+       
     }
 
     public void OnSignIn()

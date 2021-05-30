@@ -9,13 +9,13 @@ public class Enemy : MonoBehaviour {
 
 	public static float health = 4f;
 
-	public static int EnemiesAlive = 0;
+	public bool isAlive = true;
 
 	bool firstSpark = false;
 
 	void Start ()
 	{
-		EnemiesAlive++;
+		//EnemiesAlive++;
 	}
 
 	void OnCollisionEnter2D (Collision2D colInfo)
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour {
 
 	void Die ()
 	{
+		transform.parent.gameObject.GetComponent<EnemyManager>().countDeadEnemies++;
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Handheld.Vibrate();
 		if (!firstSpark)
@@ -38,10 +39,11 @@ public class Enemy : MonoBehaviour {
 			GooglePlayGamesServices.UnlockAchievement(SlingshotSoldier.GPGSIds.achievement_first_spark);
 			firstSpark = true;
 		}
-		EnemiesAlive--;
-		if (EnemiesAlive <= 0)
-			Debug.Log("LEVEL WON!");
-
+		//EnemiesAlive--;
+		if (!isAlive)
+		{
+			Debug.Log("Body Part Destroyed!");
+		}
 		Destroy(gameObject);
 	}
 

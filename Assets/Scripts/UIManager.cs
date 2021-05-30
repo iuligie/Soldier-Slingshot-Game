@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
-    public static UIManager Instance { get; private set; }
+    /*public static UIManager Instance { get; private set; }
 
     private void Awake()
     {
@@ -19,13 +19,13 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 
     public GameObject pausePanel;
  
     private bool paused;
 
-    bool canPause;
+   
     // Use this for initialization
     void Start()
     {
@@ -34,9 +34,6 @@ public class UIManager : MonoBehaviour
 
         pausePanel.SetActive(false);
 
-
-
-        canPause = true;
     }
 
 
@@ -46,6 +43,7 @@ public class UIManager : MonoBehaviour
             paused = true;
             pausePanel.SetActive(true);
             Time.timeScale = 0;
+        Debug.Log("Game is Paused");
         
     }
 
