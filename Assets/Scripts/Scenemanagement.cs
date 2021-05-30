@@ -137,7 +137,8 @@ public class SceneManagement : MonoBehaviour
     public void StartGame()
     {
         Beep();
-        SceneManager.LoadScene("SoldierShootScene2");
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void MenuScene()

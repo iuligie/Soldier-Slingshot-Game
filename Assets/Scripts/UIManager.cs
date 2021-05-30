@@ -39,27 +39,8 @@ public class UIManager : MonoBehaviour
         canPause = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-        if (canPause)
-        {
-
-            if (Input.GetKeyDown(KeyCode.Escape) && !paused)
-            {
-                Pause();
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape) && paused)
-            {
-                Resume();
-            }
-
-        }
-
-    }
-
-    private void Pause()
+    public void Pause()
     {
 
             paused = true;

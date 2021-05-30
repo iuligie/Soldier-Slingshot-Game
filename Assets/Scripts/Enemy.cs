@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour {
 	void Die ()
 	{
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
-
+		Handheld.Vibrate();
 		if (!firstSpark)
 		{
 			GooglePlayGamesServices.UnlockAchievement(SlingshotSoldier.GPGSIds.achievement_first_spark);
