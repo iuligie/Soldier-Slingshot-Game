@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using GameLogic;
+using GooglePlayServices;
 
 public class Ball : MonoBehaviour {
 
@@ -72,7 +72,7 @@ public class Ball : MonoBehaviour {
 			if(enemy.countDeadEnemies != enemy.countBodyParts)
               Debug.Log("Enter last if before reset " + GetComponent<Rigidbody2D>().velocity);
                 yield return new WaitForSeconds(3f);
-			GoogleServicesManager.Instance.score = enemy.countDeadEnemies;
+			GoogleServicesManager.Instance.score = enemy.countDeadEnemies*10;
 			GoogleServicesManager.Instance.RestartLevel();
 			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             //}

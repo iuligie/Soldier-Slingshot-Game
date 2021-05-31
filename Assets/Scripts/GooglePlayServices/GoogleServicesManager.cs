@@ -1,4 +1,4 @@
-﻿namespace GameLogic
+﻿namespace GooglePlayServices
 {
     using UnityEngine;
     using System.Collections.Generic;
@@ -73,6 +73,12 @@
             //AutoSave();
             ReportAllProgress();
             //TO DO - work on this
+        }
+
+        public void QuitGame()
+        {
+            ReportAllProgress();
+            Application.Quit();
         }
 
         public void QuitToMenu()

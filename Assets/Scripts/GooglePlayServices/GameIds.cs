@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GameLogic
+namespace GooglePlayServices
 {
     public static class GameIds
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GameLogic;
+using GooglePlayServices;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -24,8 +24,11 @@ public class SceneManagement : MonoBehaviour
         // if this is the first time we're running, bring up the sign in flow
         if (sAutoAuthenticate)
         {
-            GoogleServicesManager.Instance.Authenticate();
-            sAutoAuthenticate = false;
+            if (!GoogleServicesManager.Instance.Authenticated)
+            {
+                GoogleServicesManager.Instance.Authenticate();
+                sAutoAuthenticate = false;
+            }
         }
     }
 
@@ -146,7 +149,7 @@ public class SceneManagement : MonoBehaviour
     public void MenuScene()
     {
         Beep();
-        SceneManager.LoadScene("MenuScene 1");
+        //SceneManager.LoadScene("MenuScene 1");
     }
 
     public void ExitGame()

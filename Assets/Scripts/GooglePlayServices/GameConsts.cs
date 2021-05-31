@@ -1,4 +1,4 @@
-﻿namespace GameLogic
+﻿namespace GooglePlayServices
 {
     using UnityEngine;
 
