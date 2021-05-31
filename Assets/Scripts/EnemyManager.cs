@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SlingshotSoldier;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -21,11 +22,13 @@ public class EnemyManager : MonoBehaviour
         if (countBodyParts == countDeadEnemies)
         {
             TriggerWinPanel();
+            GooglePlayGamesServices.UnlockAchievement(SlingshotSoldier.GPGSIds.achievement_full_body);
         }
     }
 
     void TriggerWinPanel()
-    { 
-    
+    {
+        WinPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 }

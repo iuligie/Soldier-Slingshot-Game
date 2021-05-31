@@ -34,10 +34,10 @@ public class UIManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        Time.timeScale = 1;
         paused = false;
 
-        pausePanel.SetActive(false);
+        pausePanel.SetActive(paused);
 
         if (txtScore != null)
             txtScore.GetComponent<Text>().text+= "0";

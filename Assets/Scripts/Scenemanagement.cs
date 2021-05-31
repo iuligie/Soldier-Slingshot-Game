@@ -87,9 +87,9 @@ public class SceneManagement : MonoBehaviour
 
     #endregion
 
-    /*
+    
 
-    void ShowLevelSelection()
+    public void ShowLevelSelection()
     {
         levelSelectionPanel.SetActive(true);
 
@@ -97,27 +97,17 @@ public class SceneManagement : MonoBehaviour
         achievementButton.GetComponent<Button>().interactable = false;
         leaderboardButton.GetComponent<Button>().interactable = false;
         signinButton.GetComponent<Button>().interactable = false;
-        loadButton.GetComponent<Button>().interactable = false;
-
-
-        Button[] levels = levelSelectionPanel.GetComponentsInChildren<Button>();
-        Text[] texts = levelSelectionPanel.GetComponentsInChildren<Text>();
-        for (int i = 0; i < levels.Length; i++)
-        {
-            // create new local var for closure for click listener
-            int level = i;
-            texts[i].text = "Sector " + Convert.ToChar('A' + i) +
-                            "\n" + GoogleServicesManager.Instance.Progress.GetLevelProgress(i).Score;
-            levels[i].interactable =
-                GoogleServicesManager.Instance.Progress.IsLevelUnlocked(i);
-            levels[i].onClick.AddListener(() =>
-            {
-                Debug.Log("Playing level " + level);
-                GoogleServicesManager.Instance.GoToLevel(level);
-            });
-        }
+        
     }
-      */
+    public void HideLevelSelection() 
+    {
+        levelSelectionPanel.SetActive(false);
+
+        playButton.GetComponent<Button>().interactable = true;
+        achievementButton.GetComponent<Button>().interactable = true;
+        leaderboardButton.GetComponent<Button>().interactable = true;
+        signinButton.GetComponent<Button>().interactable = true;
+    }
 
     public void ShowAchievements()
     {
@@ -139,11 +129,18 @@ public class SceneManagement : MonoBehaviour
 
 
     #region BasicButtons
-    public void StartGame()
+    public void LoadSummerLevel()
     {
         Beep();
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadWinterLevel()
+    {
+        Beep();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void MenuScene()

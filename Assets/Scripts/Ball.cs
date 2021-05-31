@@ -20,9 +20,17 @@ public class Ball : MonoBehaviour {
 
 	private EnemyManager enemy;
 
+	bool isWinter = false;
+
+	
+
 	void Start()
 	{
 		enemy = enemyGO.GetComponent<EnemyManager>();
+		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Gameplay_WinterScene")
+		{
+			isWinter = true;
+		}
 	}
 
 	void Update ()

@@ -7,6 +7,7 @@
     using System;
     using GooglePlayGames.BasicApi;
     using UnityEngine.SceneManagement;
+    using SlingshotSoldier;
 
     public class GoogleServicesManager
     {
@@ -85,7 +86,7 @@
         {
             //AutoSave();
             ReportAllProgress();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene("MenuScene");
         }
 
         public void UnlockAchievement(string achId)
@@ -183,6 +184,7 @@
             {
                 // post score to the leaderboard
                 Social.ReportScore(score, GameIds.LeaderboardId, (bool success) => { });
+                GooglePlayGamesServices.IncrementAchievement(SlingshotSoldier.GPGSIds.achievement_high_score, 1);
                 mHighestPostedScore = score;
             }
             else

@@ -28,6 +28,8 @@ public static class GPGSIds
         public const string achievement_welcome = "CgkI_JSDifwYEAIQAw"; // <GPGSID>
         public const string achievement_first_spark = "CgkI_JSDifwYEAIQAQ"; // <GPGSID>
         public const string leaderboard_sparks_leaderboard = "CgkI_JSDifwYEAIQAg"; // <GPGSID>
+        public const string achievement_full_body = "CgkI_JSDifwYEAIQBQ"; // <GPGSID>
+        public const string achievement_high_score = "CgkI_JSDifwYEAIQBA"; // <GPGSID>
 
 }
 }

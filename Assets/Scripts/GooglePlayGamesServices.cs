@@ -36,7 +36,7 @@ public class GooglePlayGamesServices : MonoBehaviour
     {
         Social.ShowAchievementsUI();
     }
-    #endregion /Achievements
+    #endregion
 
     #region Leaderboards
     public static void AddScoreToLeaderboard(string leaderboardId, long score)
@@ -48,6 +48,6 @@ public class GooglePlayGamesServices : MonoBehaviour
     {
         Social.ShowLeaderboardUI();
     }
-    #endregion /Leaderboards
+    #endregion
 
 }
